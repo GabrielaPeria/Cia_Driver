@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configuração para PWA -->
+    <link rel="manifest" href="manifest.json">
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(function() {
+          console.log("Service Worker registrado com sucesso.");
+        });
+      }
+    </script>
+
+    <!-- Metadados da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Agendamento</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <!-- Cabeçalho principal -->
+    <div class="header">
+        <!-- Seção com logotipo e saudação -->
+        <div class="header-left">
+            <img src="/imagens/logo.png" alt="Logo da Empresa" class="logo">
+            <h2>Bem-vindo, Ambulância 01</h2>
+        </div>
+
+        <!-- Botões para iniciar e encerrar a jornada -->
+        <div class="action-buttons">
+            <button class="action-button" id="start-button">Iniciar Jornada</button>
+            <button class="action-button" id="stop-button" disabled>Encerrar Jornada</button>
+        </div>
+
+        <!-- Cronômetro para o tempo de jornada -->
+        <div class="timer" id="timer">Tempo de jornada: 00:00:00</div>
+    </div>
+
+    <!-- Corpo principal -->
+    <div class="main-content">
+        <!-- Seção de botões de tarefas -->
+        <div class="task-buttons">
+            <button class="task-button" onclick="navigateTo('exames.html')">Agendados para Exame</button>
+            <button class="task-button" onclick="navigateTo('retorno.html')">Agendados para Retorno</button>
+            <button class="task-button" onclick="navigateTo('concluido.html')">Concluídos</button>
+            <button class="task-button" onclick="navigateTo('cancelado.html')">Cancelados</button>
+            <button class="task-button" onclick="navigateTo('cancelado.html')">Minha jornada de trabalho</button>
+        </div>
+
+        <!-- Botão "Ver todas as tarefas", centralizado -->
+        <div class="view-all-container">
+            <button class="view-all-button">Ver todas as tarefas</button>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let totalSeconds = 0;
+
+        // Função para atualizar o cronômetro
+        function updateTimer() {
+            const hours = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
+            const minutes = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
+            const seconds = (totalSeconds % 60).toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `Tempo de jornada: ${hours}:${minutes}:${seconds}`;
+        }
+
+        // Evento ao clicar no botão "Iniciar Jornada"
+        document.getElementById('start-button').addEventListener('click', () => {
+            document.getElementById('start-button').disabled = true;
+            document.getElementById('stop-button').disabled = false;
+
+            timerInterval = setInterval(() => {
+                totalSeconds++;
+                updateTimer();
+            }, 1000);
+        });
+
+        // Evento ao clicar no botão "Encerrar Jornada"
+        document.getElementById('stop-button').addEventListener('click', () => {
+            document.getElementById('start-button').disabled = false;
+            document.getElementById('stop-button').disabled = true;
+
+            clearInterval(timerInterval);
+
+            // Reseta o cronômetro
+            totalSeconds = 0;
+            updateTimer();
+        });
+
+        // Função para redirecionar para as páginas correspondentes
+        function navigateTo(page) {
+            window.location.href = page; // Redireciona para a página especificada
+        }
+    </script>
+ 
+</body>
+</html>

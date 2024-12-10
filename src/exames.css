@@ -1,0 +1,135 @@
+/* Reset Básico */
+body {
+    margin: 0; /* Remove margens do corpo da página */
+    padding: 0; /* Remove espaçamentos internos */
+    font-family: Arial, sans-serif; /* Define a fonte padrão da página */
+    background-color: #f4f4f9; /* Define uma cor clara para o fundo */
+    box-sizing: border-box; /* Garante que paddings e bordas sejam incluídos no tamanho total */
+}
+
+/* Cabeçalho */
+.header {
+    display: flex; /* Usa layout flexível */
+    align-items: center; /* Alinha verticalmente os itens ao centro */
+    justify-content: space-between; /* Distribui os itens com espaço entre eles */
+    padding: 15px 20px; /* Adiciona espaçamento interno */
+    background-color: #2da5fb; /* Define um fundo azul */
+    color: white; /* Define a cor do texto como branco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve ao cabeçalho */
+}
+
+.header h2 {
+    margin: 0; /* Remove margem do título */
+    font-size: 20px; /* Define o tamanho da fonte */
+}
+
+.back-button {
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove bordas */
+    color: white; /* Define a cor do botão */
+    font-size: 20px; /* Define o tamanho da fonte do botão */
+    cursor: pointer; /* Mostra um cursor "mão" ao passar o mouse */
+}
+
+/* Corpo Principal */
+.content {
+    padding: 20px; /* Adiciona espaçamento interno ao conteúdo principal */
+}
+
+/* Informações da Tarefa */
+.task-info {
+    background: white; /* Define um fundo branco */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+    padding: 15px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaço abaixo do bloco */
+}
+
+/* Ajuste dos campos para ocupar metade da tela */
+.info-item {
+    margin-bottom: 15px; /* Espaço entre cada item de informação */
+    width: 50%; /* Define que o campo ocupará 50% da largura do container */
+    margin: 0 auto 15px; /* Centraliza o campo e adiciona espaço inferior */
+}
+
+.info-item label {
+    display: block; /* Define o rótulo como bloco */
+    font-size: 14px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    margin-bottom: 5px; /* Espaço entre o rótulo e o campo */
+}
+
+.info-item input,
+.info-item textarea,
+.info-item select {
+    width: 100%; /* O campo ocupa toda a largura do item */
+    padding: 10px; /* Espaçamento interno */
+    border: 1px solid #ddd; /* Adiciona uma borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 14px; /* Define o tamanho do texto */
+    background-color: #f9f9f9; /* Fundo claro */
+    color: #666; /* Cor do texto */
+    height: 45px; /* Ajusta a altura do campo para igualar aos outros */
+    box-sizing: border-box; /* Garante que o padding e as bordas sejam incluídos no tamanho total */
+}
+
+/* Campo de texto para observação */
+.info-item textarea {
+    resize: none; /* Desativa o redimensionamento */
+    height: 60px; /* Define uma altura fixa */
+}
+
+/* Anexos */
+.attachment {
+    background: white; /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    padding: 15px; /* Espaçamento interno */
+}
+
+.attachment-item {
+    display: flex; /* Usa layout flexível */
+    align-items: center; /* Alinha os itens verticalmente */
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.attachment-item .icon {
+    font-size: 24px; /* Tamanho do ícone */
+    color: #2da5fb; /* Cor azul para o ícone */
+}
+
+.attachment-text p {
+    margin: 0; /* Remove margens do parágrafo */
+    font-size: 14px; /* Tamanho do texto */
+    color: #333; /* Cor do texto */
+}
+
+.attachment-text span {
+    font-size: 14px; /* Tamanho do texto */
+    color: #666; /* Cor do contador de anexos */
+}
+
+/* Botão Adicionar */
+.footer {
+    display: flex; /* Define layout flexível */
+    justify-content: center; /* Centraliza o botão */
+    padding: 20px; /* Espaçamento interno ao redor do botão */
+}
+
+.add-button {
+    background-color: #2da5fb; /* Fundo azul */
+    color: white; /* Texto branco */
+    border: none; /* Remove bordas */
+    border-radius: 30px; /* Bordas arredondadas para formato de pílula */
+    padding: 10px 30px; /* Define espaçamento interno do botão */
+    font-size: 16px; /* Tamanho do texto */
+    cursor: pointer; /* Mostra cursor "mão" ao passar o mouse */
+    text-align: center; /* Centraliza o texto no botão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+    transition: background-color 0.3s ease; /* Transição suave ao alterar a cor do fundo */
+    display: inline-block; /* Exibe o botão como bloco embutido */
+}
+
+.add-button:hover {
+    background-color: #1d89d0; /* Muda o fundo para azul escuro ao passar o mouse */
+}

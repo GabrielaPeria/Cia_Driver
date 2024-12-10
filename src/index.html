@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Link para o arquivo manifest.json -->
+  <link rel="manifest" href="/manifest.json">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Registro do Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Service Worker registrado com sucesso.'))
+        .catch(error => console.error('Erro ao registrar o Service Worker:', error));
+    }
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema de agendamento</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <div class="header">
+      <img src="/Imagens/logo.png" alt="Logo da Empresa" class="logo">
+      <h2>Sistema de agendamento</h2>
+    </div>
+    <form onsubmit="return login(event)">
+      <label for="username">Seu e-mail <span>*</span></label>
+      <input type="email" id="username" name="username" placeholder="Digite seu e-mail" required>
+      
+      <label for="password">Senha <span>*</span></label>
+      <div class="password-container">
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        <button type="button" class="toggle-password" onclick="togglePassword()">
+          <span id="eye-icon" class="material-icons">visibility</span>          
+        </button>
+      </div>
+      <script> 
+        function togglePassword(){
+          const passwordField = document.getElementById('password');
+          const toggleIcon = document.getElementById('eye-icon');
+
+          // Alterar visualização da senha
+
+          if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.innerHTML = 'visibility'; // icone fechado
+          } else {
+            passwordField.type = 'password';
+            toggleIcon.innerHTML = 'visibility_off'; // icone aberto
+          }
+        }
+      </script>
+      
+      <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+      <button type="submit" class="login-button">Entrar</button>
+    </form>
+    <p class="signup">
+      Dúvidas? 
+      <a href="https://web.whatsapp.com/send?phone=5516993343707&text=Ol%C3%A1,%20eu%20preciso%20de%20ajuda%20com%20o%20sistema." 
+         target="_blank" rel="noopener noreferrer">Entre em contato agora!</a>
+    </p>
+  </div>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      if (username === 'Admin@admin.com' && password === 'Admin') {
+        window.location.href = 'menu.html';
+      } else {
+        alert('Usuário ou senha incorretos');
+      }
+    }
+
+  </script>
+  <!-- Pop-up para download do app -->
+<div id="install-popup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); color: white; display: flex; justify-content: center; align-items: center; z-index: 1000;">
+  <div style="background: white; color: black; padding: 20px; border-radius: 10px; text-align: center; max-width: 300px;">
+      <h2>Baixe nosso aplicativo</h2>
+      <p>Instale o sistema para acesso rápido em seu dispositivo.</p>
+      <button id="install-button" style="background-color: #2da5fb; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Instalar</button>
+      <button id="close-popup" style="background-color: red; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px;">Fechar</button>
+  </div>
+</div>
+
+<script>
+  let deferredPrompt;
+
+  // Detectar a possibilidade de instalação do PWA
+  window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById("install-popup").style.display = "flex";
+  });
+
+  // Botão de instalação
+  document.getElementById("install-button").addEventListener("click", () => {
+      if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === "accepted") {
+                  console.log("Usuário aceitou instalar o app.");
+              } else {
+                  console.log("Usuário recusou instalar o app.");
+              }
+              deferredPrompt = null;
+          });
+      }
+      document.getElementById("install-popup").style.display = "none";
+  });
+
+  // Botão de fechar o pop-up
+  document.getElementById("close-popup").addEventListener("click", () => {
+      document.getElementById("install-popup").style.display = "none";
+  });
+</script>
+</body>
+</html>

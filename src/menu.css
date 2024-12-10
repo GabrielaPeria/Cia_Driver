@@ -1,0 +1,132 @@
+/* Reset básico: Remove margens e espaçamentos padrão e define estilos básicos para todo o documento */
+body {
+    margin: 0; /* Remove margens externas do corpo */
+    padding: 0; /* Remove espaçamentos internos do corpo */
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    box-sizing: border-box; /* Inclui margens e bordas no tamanho total dos elementos */
+    background-color: #f4f4f9; /* Define a cor de fundo clara para a página */
+}
+
+/* Cabeçalho: Estiliza a área superior da página */
+.header {
+    display: flex; /* Define o layout flexível */
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    align-items: center; /* Centraliza os elementos horizontalmente */
+    justify-content: center; /* Centraliza os elementos verticalmente */
+    background-color: #2da5fb; /* Define a cor de fundo azul */
+    padding: 20px; /* Espaçamento interno */
+    color: white; /* Define a cor do texto para branco */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao cabeçalho */
+}
+
+/* Estiliza a área com o logotipo e texto no cabeçalho */
+.header-left {
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo do logotipo no cabeçalho */
+.logo {
+    width: 180px; /* Define a largura máxima do logotipo */
+    height: auto; /* Mantém a proporção do logotipo */
+    margin-bottom: 2px; /* Espaço abaixo do logotipo */
+}
+
+/* Botões de ação no cabeçalho */
+.action-button {
+    color: white; /* Define a cor do texto */
+    border: none; /* Remove bordas */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border-radius: 20px; /* Bordas arredondadas */
+    font-size: 16px; /* Define o tamanho do texto */
+    cursor: pointer; /* Mostra o cursor "mão" ao passar o mouse */
+    margin-top: 10px; /* Espaçamento acima do botão */
+    transition: all 0.3s ease; /* Anima mudanças de estilo */
+}
+
+/* Botão "Iniciar Jornada" */
+#start-button {
+    background-color: #12dd6a; /* Fundo verde */
+}
+
+/* Botão "Iniciar Jornada" ao passar o mouse */
+#start-button:hover {
+    background-color: #10b557; /* Tom mais escuro de verde */
+}
+
+/* Botão "Encerrar Jornada" */
+#stop-button {
+    background-color: #ff4d4d; /* Fundo vermelho */
+}
+
+/* Botão "Encerrar Jornada" ao passar o mouse */
+#stop-button:hover {
+    background-color: #cc0000; /* Tom mais escuro de vermelho */
+}
+
+/* Botões desativados (bloqueados) */
+.action-button:disabled {
+    background-color: #ccc; /* Fundo cinza */
+    cursor: not-allowed; /* Cursor indicando bloqueio */
+    opacity: 0.7; /* Reduz opacidade para dar um efeito visual de desativado */
+}
+
+/* Cronômetro: Estiliza o texto que exibe o tempo da jornada */
+.timer {
+    font-size: 18px; /* Define o tamanho do texto */
+    color: #fff; /* Define a cor do texto como branca */
+    margin-top: 10px; /* Espaçamento acima do cronômetro */
+}
+
+/* Botões de tarefas: Container que organiza os botões verticalmente */
+.task-buttons {
+    display: flex; /* Define o layout flexível */
+    flex-direction: column; /* Organiza os botões verticalmente */
+    gap: 15px; /* Espaço entre os botões */
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 400px; /* Limita a largura máxima */
+    margin: 20px auto; /* Centraliza na tela */
+}
+
+/* Estilo individual para cada botão de tarefa */
+.task-button {
+    background-color: #c3e5fb; /* Define o fundo azul */
+    color: rgb(0, 123, 255); /* Define o texto branco */
+    border: 3px solid #2da5fb; /* Adiciona bordas mais destacadas */
+    padding: 15px 20px; /* Define o espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 20px; /* Define o tamanho do texto */
+    cursor: pointer; /* Mostra o cursor "mão" ao passar o mouse */
+    transition: all 0.3s ease; /* Anima mudanças de estilo */
+    text-align: left; /* Alinha o texto à esquerda */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao botão */
+}
+
+/* Botão de tarefa ao passar o mouse */
+.task-button:hover {
+    background-color: #58f79d; /* Muda a cor de fundo para um tom mais escuro de azul */
+    border-color: #1d89d0; /* Altera também a cor da borda */
+}
+
+/* Container do botão "Ver todas as tarefas" */
+.view-all-container {
+    text-align: center; /* Centraliza o botão horizontalmente */
+    margin-top: 30px; /* Espaço acima do botão */
+}
+
+/* Botão "Ver todas as tarefas" */
+.view-all-button {
+    background-color: #2da5fb; /* Fundo azul */
+    color: white; /* Texto branco */
+    border: none; /* Remove bordas */
+    padding: 10px 20px; /* Define o espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 16px; /* Define o tamanho do texto */
+    cursor: pointer; /* Mostra o cursor "mão" ao passar o mouse */
+    transition: all 0.3s ease; /* Anima mudanças de estilo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao botão */
+}
+
+/* Botão "Ver todas as tarefas" ao passar o mouse */
+.view-all-button:hover {
+    background-color: #1d89d0; /* Muda a cor do fundo para um tom mais escuro de azul */
+}

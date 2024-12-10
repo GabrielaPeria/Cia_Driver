@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retorno </title>
+    <link rel="stylesheet" href="exames.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <div class="header">
+        <button class="back-button" onclick="window.history.back()">←</button>
+        <h2>Retorno para a residência do paciente</h2>
+    </div>
+
+    <!-- Corpo Principal -->
+    <div class="content">
+        <!-- Informações da Tarefa -->
+        <div class="task-info">
+            <div class="info-item">
+                <label for="categoria">Tipo do exame</label>
+                <select id="categoria" class="dropdown">
+                    <option value="teste" selected>RX</option>
+                    <option value="transporte">Ressonância</option>
+                    <option value="consulta">Endoscopia</option>
+                    <option value="consulta">Colonoscopia</option>
+                </select>
+            </div>
+
+            <div class="info-item">
+                <label>Nome do paciente</label>
+                <input type="text" value="Danilo Santos" disabled>
+            </div>
+
+            <div class="info-item">
+                <label>Pessoa de contato</label>
+                <input type="text" value="Camila" disabled>
+            </div>
+
+            <div class="info-item">
+                <label>Telefone de contato</label>
+                <input type="text" value="16982050444" disabled>
+            </div>
+            <div class="info-item">
+                <label>Endereço do paciente</label>
+                <input type="text" value="Rua paranaue, 122" disabled>
+            </div>
+
+            <div class="info-item">
+                <label>Observação</label>
+                <textarea disabled>paciente debilitado</textarea>
+            </div>
+        </div>
+
+        <!-- Anexo -->
+        <div class="attachment">
+            <div class="attachment-item">
+                <span class="icon">📄</span>
+                <div class="attachment-text">
+                    <p>Documentos ou fotos</p>
+                    <span id="file-count">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão Anexar -->
+    <div class="footer">
+        <label for="file-upload" class="add-button">Anexar</label>
+        <input type="file" id="file-upload" accept=".pdf,.png,.jpg,.jpeg" multiple style="display: none;">
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-upload');
+        const fileCount = document.getElementById('file-count');
+
+        // Atualiza a contagem de arquivos anexados
+        fileInput.addEventListener('change', () => {
+            const files = fileInput.files;
+            fileCount.textContent = files.length;
+            alert(`${files.length} arquivo(s) selecionado(s).`);
+        });
+    </script>
+</body>
+</html>
